@@ -1,3 +1,25 @@
+Changes in version 5.0.94
+    Add support for Ubuntu 26.04 (#4822)
+    Deprecate support for Ubuntu Bionic and Debian Bullseye
+    Implement security enhancements following auditors suggestions:
+    - Hash password reset, email change, and signup activation tokens at rest
+    - Minimize in-memory lifetime of cleartext whistleblower receipt
+    - Avoid local session storage for the user session
+    - Enforce tenant isolation
+    - Use os.path.commonpath in directory_traversal_check to prevent sibling-prefix bypass
+    - Harden globaleaks.service with systemd sandboxing directives
+    - Pin development dependencies and GitHub Actions to commit SHAs
+    - Backport patch for CVE-2024-41671
+    Replace ngx-clipboard with native Clipboard API
+    Revise Accept-Language header parsing
+    Fix whistleblower receipt login not opening the report when used from /submission (#4833)
+    Fix failure on sending PGP encrypted support emails
+    Fix daterange rendering broken by leftover placeholder
+    Avoid scrolling on disclaimer when not needed
+    Deprecate usage of Clear-Site-Data header preferring clientside cleaning
+    Optimize API caching and crypto engine
+    Bump client dependencies to latest stable version
+
 Changes in version 5.0.93
     Implement security enhancements following auditors suggestions:
     - Enhance isolation checks for tenant boundaries
