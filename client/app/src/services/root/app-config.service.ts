@@ -97,9 +97,7 @@ export class AppConfigService {
           }
         });
 
-        this.translationService.setLanguage(sessionStorage.getItem("language") ||
-                                            this.appDataService.public.node.default_language ||
-                                            'en');
+        this.translationService.setLanguage(this.appDataService.public.node.default_language || 'en');
 
         this.titleService.setTitle();
         this.onValidateInitialConfiguration();

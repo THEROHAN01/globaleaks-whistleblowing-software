@@ -31,7 +31,6 @@ export class TranslationService {
     if (!this.language || this.language != language) {
       this.language = language;
       window.GL.language = this.language;
-      sessionStorage.setItem("language", this.language);
       document.documentElement.dir = this.utilsService.getDirection(this.language);
       this.changeLocale(this.language);
       this.translate.use(this.language);

@@ -39,20 +39,15 @@ export class UserComponent {
   }
 
   onChangeLanguage() {
-    sessionStorage.setItem("language", this.translationService.language);
-
     window.location.reload();
   }
 
   onQueryParameterChangeListener() {
     this.activatedRoute.queryParams.subscribe(params => {
-      const storedLang = sessionStorage.getItem("language");
       const langParam = params['lang'];
       const languagesEnabled = this.appDataService.public.node.languages_enabled;
 
-      if (langParam && langParam !== storedLang && languagesEnabled.includes(langParam)) {
-        sessionStorage.setItem("language", langParam);
-
+      if (langParam && languagesEnabled.includes(langParam)) {
         // Get current hash
         let hash = window.location.hash; // e.g., "#!/some/path?lang=en&foo=bar"
 

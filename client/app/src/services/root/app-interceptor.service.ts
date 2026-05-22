@@ -33,18 +33,13 @@ export class appInterceptor implements HttpInterceptor {
   private cryptoService = inject(CryptoService);
 
   private getAcceptLanguageHeader(): string | null {
-    const language = sessionStorage.getItem("language");
-    if (language) {
-      return language;
-    } else {
-      const url = window.location.href;
-      const hashFragment = url.split("#")[1];
+    const url = window.location.href;
+    const hashFragment = url.split("#")[1];
 
-      if (hashFragment && hashFragment.includes("lang=")) {
-        return hashFragment.split("lang=")[1].split("&")[0];
-      } else {
-        return "";
-      }
+    if (hashFragment && hashFragment.includes("lang=")) {
+      return hashFragment.split("lang=")[1].split("&")[0];
+    } else {
+      return "";
     }
   }
 
